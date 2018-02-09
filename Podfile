@@ -9,7 +9,7 @@ target 'WebRTCHandsOn' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
 
-#  pod 'WebRTC', '58.17.16937'
-  pod 'Starscream', '~> 2.0.3'
+  pod 'WebRTC', '58.17.16937'
+#  pod 'Starscream', '~> 2.0.3'
   pod 'SwiftyJSON'
 end
