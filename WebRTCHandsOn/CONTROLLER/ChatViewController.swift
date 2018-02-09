@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WebRTC
 import Starscream
 import SwiftyJSON
 import Firebase
@@ -294,7 +293,6 @@ class ChatViewController: UIViewController {
     @IBAction func closeButtonAction(_ sender: Any) {
         // Closeボタンを押した時
         hangUp()
-        websocket.disconnect()
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
