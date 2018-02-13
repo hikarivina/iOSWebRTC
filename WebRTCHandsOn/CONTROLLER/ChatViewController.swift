@@ -435,9 +435,11 @@ extension ChatViewController: RTCEAGLVideoViewDelegate {
 
 
 
-// 参考にさせていただきました！Thanks: http://seesaakyoto.seesaa.net/article/403680516.html
-func LOG(_ body: String = "", function: String = #function, line: Int = #line) {
-    print("[\(function) : \(line)] \(body)")
+
+
+
+extension ChatViewController {
+    
 }
 
 

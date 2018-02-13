@@ -10,6 +10,7 @@
 		864724BDFA2FD4F613B8302B /* Pods_WebRTCHandsOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF10745FA17AD353468CD464 /* Pods_WebRTCHandsOn.framework */; };
 		DF78A882202C495300E49750 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DF78A881202C495300E49750 /* README.md */; };
 		DF78A886202D7E8000E49750 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF78A885202D7E8000E49750 /* GoogleService-Info.plist */; };
+		DF78A8892032A7AF00E49750 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78A8882032A7AF00E49750 /* Utility.swift */; };
 		E93377FA1ED962BB0011FBC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93377F91ED962BB0011FBC1 /* AppDelegate.swift */; };
 		E93377FC1ED962BB0011FBC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93377FB1ED962BB0011FBC1 /* ViewController.swift */; };
 		E93377FF1ED962BB0011FBC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93377FD1ED962BB0011FBC1 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		AF10745FA17AD353468CD464 /* Pods_WebRTCHandsOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebRTCHandsOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF78A881202C495300E49750 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DF78A885202D7E8000E49750 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DF78A8882032A7AF00E49750 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E93377F61ED962BB0011FBC1 /* WebRTCHandsOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebRTCHandsOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93377F91ED962BB0011FBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E93377FB1ED962BB0011FBC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		DF78A88720329AE500E49750 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DF78A8882032A7AF00E49750 /* Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		E93377ED1ED962BB0011FBC1 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 				E93377F91ED962BB0011FBC1 /* AppDelegate.swift */,
 				E93377FD1ED962BB0011FBC1 /* Main.storyboard */,
 				DF78A883202C4A9700E49750 /* CONTROLLER */,
+				DF78A88720329AE500E49750 /* Utility */,
 				DF78A884202C4AB400E49750 /* Support */,
 			);
 			path = WebRTCHandsOn;
@@ -253,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF78A8892032A7AF00E49750 /* Utility.swift in Sources */,
 				E93377FC1ED962BB0011FBC1 /* ViewController.swift in Sources */,
 				E93829171ED9BFF000FD4E46 /* ChatViewController.swift in Sources */,
 				E93377FA1ED962BB0011FBC1 /* AppDelegate.swift in Sources */,
@@ -384,7 +396,7 @@
 				DEVELOPMENT_TEAM = 6NE57FX5TR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/WebRTCHandsOn/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DangApp.RaoVatJPDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,7 +412,7 @@
 				DEVELOPMENT_TEAM = 6NE57FX5TR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/WebRTCHandsOn/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DangApp.RaoVatJPDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
