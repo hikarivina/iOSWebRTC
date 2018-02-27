@@ -13,6 +13,7 @@
 		DF78A8892032A7AF00E49750 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78A8882032A7AF00E49750 /* Utility.swift */; };
 		DF78A88B2032DF1F00E49750 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78A88A2032DF1F00E49750 /* CallViewController.swift */; };
 		DF78A88E2032EDBC00E49750 /* WebRTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78A88D2032EDBC00E49750 /* WebRTC.swift */; };
+		DF78A8902032F31B00E49750 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78A88F2032F31B00E49750 /* CallManager.swift */; };
 		E93377FA1ED962BB0011FBC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93377F91ED962BB0011FBC1 /* AppDelegate.swift */; };
 		E93377FC1ED962BB0011FBC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93377FB1ED962BB0011FBC1 /* ViewController.swift */; };
 		E93377FF1ED962BB0011FBC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93377FD1ED962BB0011FBC1 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		DF78A8882032A7AF00E49750 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		DF78A88A2032DF1F00E49750 /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		DF78A88D2032EDBC00E49750 /* WebRTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTC.swift; sourceTree = "<group>"; };
+		DF78A88F2032F31B00E49750 /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
 		E93377F61ED962BB0011FBC1 /* WebRTCHandsOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebRTCHandsOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93377F91ED962BB0011FBC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E93377FB1ED962BB0011FBC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				DF78A88D2032EDBC00E49750 /* WebRTC.swift */,
+				DF78A88F2032F31B00E49750 /* CallManager.swift */,
 			);
 			path = SERVICE;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				DF78A8892032A7AF00E49750 /* Utility.swift in Sources */,
 				E93377FC1ED962BB0011FBC1 /* ViewController.swift in Sources */,
 				E93829171ED9BFF000FD4E46 /* ChatViewController.swift in Sources */,
+				DF78A8902032F31B00E49750 /* CallManager.swift in Sources */,
 				DF78A88B2032DF1F00E49750 /* CallViewController.swift in Sources */,
 				DF78A88E2032EDBC00E49750 /* WebRTC.swift in Sources */,
 				E93377FA1ED962BB0011FBC1 /* AppDelegate.swift in Sources */,

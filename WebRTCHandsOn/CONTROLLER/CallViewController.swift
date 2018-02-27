@@ -12,12 +12,7 @@ import CallKit
 class CallViewController: UIViewController, CXProviderDelegate {
 
     override func viewDidLoad() {
-        let provider = CXProvider(configuration: CXProviderConfiguration(localizedName: "My App"))
-        provider.setDelegate(self, queue: nil)
-        let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: "Pete Za")
-        provider.reportNewIncomingCall(with: UUID(), update: update, completion: { error in })
-        print("test app")
+
     }
     
     func providerDidReset(_ provider: CXProvider) {

@@ -36,6 +36,7 @@ class ChatViewController: UIViewController {
         audioSource = nil
         videoSource = nil
         peerConnectionFactory = nil
+        LOG("DEINIT")
     }
     
     
@@ -64,10 +65,11 @@ class ChatViewController: UIViewController {
     
     func observerSingnal() {
         
-        self.observerSignalRef?.observe(.value, with: { (snapshot) in
+        self.observerSignalRef?.observe(.value, with: { [weak self] (snapshot) in
             
             guard snapshot.exists() else { return }
             LOG("message: \(snapshot.value ?? "NO Value")")
+            
             // 受け取ったメッセージをJSONとしてパース
             let jsonMessage = JSON(snapshot.value!)
             let type = jsonMessage["type"].stringValue
@@ -78,24 +80,27 @@ class ChatViewController: UIViewController {
                 let offer = RTCSessionDescription(
                     type: RTCSessionDescription.type(for: type),
                     sdp: jsonMessage["sdp"].stringValue)
-                self.setOffer(offer)
+                self?.setOffer(offer)
+                
             case "answer":
                 // answerを受け取った時の処理
                 LOG("Received answer ...")
                 let answer = RTCSessionDescription(
                     type: RTCSessionDescription.type(for: type),
                     sdp: jsonMessage["sdp"].stringValue)
-                self.setAnswer(answer)
+                self?.setAnswer(answer)
+                
             case "candidate":
                 LOG("Received ICE candidate ...")
                 let candidate = RTCIceCandidate(
                     sdp: jsonMessage["ice"]["candidate"].stringValue,
                     sdpMLineIndex: jsonMessage["ice"]["sdpMLineIndex"].int32Value,
                     sdpMid: jsonMessage["ice"]["sdpMid"].stringValue)
-                self.addIceCandidate(candidate)
+                self?.addIceCandidate(candidate)
+                
             case "close":
                 LOG("peer is closed ...")
-                self.hangUp()
+                self?.hangUp()
             default:
                 return
             }
@@ -123,7 +128,10 @@ class ChatViewController: UIViewController {
     func prepareNewConnection() -> RTCPeerConnection {
         // STUN/TURNサーバーの指定
         let configuration = RTCConfiguration()
-        configuration.iceServers = [RTCIceServer.init(urlStrings: ["stun:stun.l.google.com:19302"])]
+        configuration.iceServers = [RTCIceServer.init(urlStrings: ["stun:stun.l.google.com:19302",
+                                                                   "stun:stun2.l.google.com:19302",
+                                                                   "stun:stun3.l.google.com:19302",
+                                                                   "stun:stun4.l.google.com:19302"])]
         
         // PeerConecctionの設定(今回はなし)
         let peerConnectionConstraints = RTCMediaConstraints(
@@ -220,7 +228,6 @@ class ChatViewController: UIViewController {
         ]
         let message = jsonSdp.dictionaryObject
 
-        
         self.offerSignalRef?.setValue(message) { (error, ref) in // 相手に送信
             if error != nil {
                 print("Dang sendIceCandidate -->> ", error.debugDescription)
@@ -233,6 +240,8 @@ class ChatViewController: UIViewController {
         if peerConnection != nil {
             LOG("peerConnection alreay exist!")
         }
+        
+//        APP_DELGATE.callManager?.receiveCall()
         
         peerConnection = prepareNewConnection() // PeerConnectionを生成する
         self.peerConnection.setRemoteDescription(offer, completionHandler: {(error: Error?) in
@@ -282,9 +291,7 @@ class ChatViewController: UIViewController {
         if peerConnection != nil {
             if peerConnection.iceConnectionState != RTCIceConnectionState.closed {
                 peerConnection.close()
-                let jsonClose: JSON = [
-                    "type": "close"
-                ]
+                let jsonClose: JSON = ["type": "close"]
                 
                 let message = jsonClose.dictionaryObject
                 LOG("sending close message")
@@ -387,14 +394,13 @@ extension ChatViewController: RTCPeerConnectionDelegate {
     
     func sendIceCandidate(_ candidate: RTCIceCandidate) {
         LOG("---sending ICE candidate ---")
-        let jsonCandidate: JSON = [
-            "type": "candidate",
-            "ice": [
-                "candidate": candidate.sdp,
-                "sdpMLineIndex": candidate.sdpMLineIndex,
-                "sdpMid": candidate.sdpMid!
-            ]
-        ]
+        let jsonCandidate: JSON = ["type": "candidate",
+                                    "ice": [
+                                        "candidate": candidate.sdp,
+                                        "sdpMLineIndex": candidate.sdpMLineIndex,
+                                        "sdpMid": candidate.sdpMid!
+                                        ]
+                                    ]
 
         let message = jsonCandidate.dictionaryObject
         

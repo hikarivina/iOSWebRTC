@@ -13,6 +13,8 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var callManager: CallManager?
 
     var window: UIWindow?
 
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         RTCInitializeSSL()
+        self.callManager = CallManager()
         return true
     }
 

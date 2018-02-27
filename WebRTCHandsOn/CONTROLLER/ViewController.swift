@@ -8,6 +8,8 @@
 
 import UIKit
 
+let APP_DELGATE = UIApplication.shared.delegate as! AppDelegate
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
     
     @IBAction func connectButtonAction(_ sender: Any) {
         self.performSegue(withIdentifier: "joinToRoom", sender: nil)
+//        APP_DELGATE.callManager?.sendCall()
     }
     
 }
